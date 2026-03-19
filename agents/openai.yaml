@@ -1,0 +1,4 @@
+interface:
+  display_name: "Structure Spoken Notes"
+  short_description: "Turn spoken or messy wording into clear structured text."
+  default_prompt: "Use $structure-spoken-notes to rewrite the user's rough wording into structured text, and provide a detailed version, concise version, or business-formal version when requested."
