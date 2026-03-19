@@ -7,12 +7,15 @@ description: Use when the user sends messy spoken language, rough notes, fragmen
 
 Rewrite the user's original words into clearer, more structured writing without changing the meaning.
 
+This skill is meaning-preserving by default. Do not treat stylistic polish as permission to add content, hidden assumptions, or analysis the user did not ask for.
+
 ## Core Rule
 
 - Preserve intent
 - Do not add facts the user did not say
 - Do not over-explain
 - Improve only structure, wording, and readability
+- Do not smuggle advice, interpretation, or strategy into a rewrite-only request
 
 ## When To Use
 
@@ -51,6 +54,7 @@ Requirements:
 - Group related points together
 - Make the logic flow natural
 - Keep the tone aligned with the user's intent
+- Do not inflate the content beyond what the source supports
 
 ### Concise Version
 
@@ -67,6 +71,7 @@ Requirements:
 - Remove repetition and filler
 - Use fewer paragraphs
 - Stay direct and easy to forward
+- Do not compress away the user's core ask
 
 ### Business-Formal Version
 
@@ -86,6 +91,7 @@ Requirements:
 - Remove casual filler and overly spoken phrasing
 - Clarify background, current issue, and asks when relevant
 - Avoid sounding stiff or exaggerated
+- Do not make the text sound more certain than the source actually is
 
 ## Default Behavior
 
@@ -96,6 +102,8 @@ If the user does not specify a mode:
 - Keep enough detail to preserve the full meaning
 - If the wording appears intended for external communication, lean slightly professional
 
+If the user asks for a rewrite and not an analysis, do not add recommendations, next steps, or explanation.
+
 ## Writing Rules
 
 - Prefer clear paragraph structure over bullet overload unless the content is naturally list-shaped
@@ -104,6 +112,8 @@ If the user does not specify a mode:
 - If the user asks for "just rewrite", do not add analysis, advice, or next steps
 - If the user asks for multiple versions, label each version clearly
 - Available labels include `详细版`, `精简版`, and `正式商务版`
+- If ambiguity remains, prefer slightly general wording over invented specifics
+- If the user's source is bilingual or requests bilingual output, keep the two versions aligned in meaning
 
 ## Compression Pattern
 
@@ -118,3 +128,15 @@ When converting spoken language into structured writing:
 ## Safety Rule
 
 If a key fact is genuinely ambiguous, keep the wording slightly general instead of inventing specifics.
+
+## Completion Standard
+
+Before claiming the rewrite is complete, confirm:
+
+- the original meaning is preserved
+- no new factual claims were introduced
+- the requested tone or mode is actually reflected
+- the output is clearer than the source
+- multiple requested versions are clearly labeled
+
+Do not claim the task is done if the rewrite is cleaner but has drifted in meaning.
